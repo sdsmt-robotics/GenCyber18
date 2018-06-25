@@ -141,6 +141,6 @@ class Robot:
         return dist[0]
 
     def set_ir_position(self, angle):
-        self.send_cmd(ir_pos_flag, angle)
+        self.send_cmd(ir_pos_flag, angle-90)
 
 
