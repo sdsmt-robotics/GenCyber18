@@ -1,0 +1,5 @@
+Goal: connect your robot and run geekbot_test.py using the PyScripter editor.
+
+Your robot should flash its lights, beep, move its sensor, and move its wheels!
+
+Please let Rem or Kali know if somehting doesn't work. 
