@@ -9,7 +9,7 @@ if geek.is_connected() == False:
 
 #####################################
 
-MIN_DIST = 20 # Change this number to detect closer ojbects 
+MIN_DIST = 15 # Change this number to detect closer ojbects 
 
 while 1:
     
@@ -21,10 +21,13 @@ while 1:
             geek.beep(1)
             geek.lights_off()
             geek.set_ir_position(0)
-            wait(.2)               
+            wait(.5)               
             left_dist = geek.get_ir_distance()
 
             if left_dist <= MIN_DIST:
+                geek.lights_on()
+                geek.beep(1)
+                geek.lights_off()
                 geek.set_ir_position(90)    
                 geek.turn_right(50, 0.75)   # Change the speed and time to turn 90* 
                                         
