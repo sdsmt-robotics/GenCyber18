@@ -20,6 +20,8 @@ lights_flag = 0x30
 ir_read_flag = 0x27
 ir_pos_flag  = 0x28
 
+buzzer_flag  = 0x29
+
 class Robot:
 
     def __init__(self, baud, file=None):
@@ -53,7 +55,7 @@ class Robot:
                 return str(i.device)
         print("No Geekbot found!")
         return None
-                 
+
     def is_connected(self):
         return self.connected
 
@@ -70,7 +72,7 @@ class Robot:
         return int(temp)
 
     def pack_short(self,num):
-        return pack("h", int(num))    
+        return pack("h", int(num))
 
     def send_cmd(self,flag, data):
         self.port.write(chr(flag).encode())
@@ -111,7 +113,7 @@ class Robot:
     def drive_forward(self, speed, adjust=None, seconds=None):
         if adjust == None:
             self.send_cmd(drive_flag, speed)
-        else: 
+        else:
             self.drive_left_wheel(speed)
             adjusted = speed+adjust
             if adjusted > 100:
@@ -130,7 +132,7 @@ class Robot:
     def drive_backward(self, speed, adjust=None, seconds=None):
         if adjust == None:
             self.send_cmd(drive_flag, -speed)
-        else: 
+        else:
             self.drive_left_wheel(-speed)
             adjusted = speed+adjust
             if   adjusted > 100:
@@ -147,7 +149,7 @@ class Robot:
 
     def drive_right_wheel(self, speed):
         self.send_cmd(right_flag, -speed)
-        
+
     def drive_left_wheel(self, speed):
         self.send_cmd(left_flag, -speed)
 
@@ -159,5 +161,18 @@ class Robot:
 
     def set_ir_position(self, angle):
         self.send_cmd(ir_pos_flag, angle-90)
+
+    def buzzer_on(self):
+        self.send_cmd(buzzer_flag, 2)
+
+    def buzzer_off(self):
+        self.send_cmd(buzzer_flag, 0)
+
+    def beep(self, beeps):
+        for i in range (0,beeps):
+            self.buzzer_on()
+            wait(.125)
+            self.buzzer_off()
+            wait(.125)
 
 
