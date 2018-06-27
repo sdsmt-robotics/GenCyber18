@@ -16,7 +16,7 @@ while 1:
     front_dist = geek.get_ir_distance() 
     print(front_dist)
 
-    if dist <= MIN_DIST:
+    if front_dist <= MIN_DIST:
             geek.lights_on()
             geek.beep(1)
             geek.lights_off()
