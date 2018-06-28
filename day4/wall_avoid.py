@@ -11,33 +11,35 @@ if geek.is_connected() == False:
 MIN_DIST = 11
 
 while 1:
-    # Get front distance
-
-    # If there's a wall in front
-
-        # Stop the robot
-
-        # Beep and flash lights
-
-        # Get left distance
-
-        # If there's a wall to the left
-
-            # Beep and flash lights
-
-            # Turn right
-
-        # Else, there's not a wall to the left
-
-            # Turn left
-
-    # Else, there's not a wall in front
-
-        # Drive forward
-
-    wait(.2)
-    
-    ##### IGNORE THIS PLEASE #####
+	try:
+	    # Get front distance
+	
+	    # If there's a wall in front
+	
+	        # Stop the robot
+	
+	        # Beep and flash lights
+	
+	        # Get left distance
+	
+	        # If there's a wall to the left
+	
+	            # Beep and flash lights
+	
+	            # Turn right
+	
+	        # Else, there's not a wall to the left
+	
+	            # Turn left
+	
+	    # Else, there's not a wall in front
+	
+	        # Drive forward
+	
+	    wait(.2)
+	    
+	    ##### IGNORE THIS PLEASE #####
     except KeyboardInterrupt:
         geek.shutdown()
         break
+	
