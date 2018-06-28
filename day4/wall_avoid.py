@@ -11,7 +11,7 @@ if geek.is_connected() == False:
 MIN_DIST = 11
 
 while 1:
-	try:
+    try:
 	    # Get front distance
 	
 	    # If there's a wall in front
